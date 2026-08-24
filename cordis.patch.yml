@@ -1,0 +1,5 @@
+# Inserted into the profile's plugin tree. Mirrors dsh-base's own entry for
+# llm-deepseek — same shape, same seam, different backend.
+- insert:
+    - id: llm-subscription
+      name: '@davidgallo/dsh-llm-subscription'
