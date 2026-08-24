@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.1.2 (unreleased)
+## 0.1.3 (unreleased)
+
+- Added a third provider, `qwen-local`, backed by [Ollama](https://ollama.com) (`qwen3.5:9b` by default) — a $0 option with no CLI login of any kind. Same lazy-start pattern as `dsh-subscription-gateway`'s Python Ollama provider: never touches `ollama serve` until the first real call, and only if it isn't already running.
+
+## 0.1.2
 
 - Providers are only registered if their CLI is actually found on PATH at startup — previously both were always registered, so picking Gemini without `agy` installed threw a raw Node `ENOENT` instead of a clean error.
 - Errors now use `LlmError` with real codes (`MISSING_CLI`, `TIMEOUT`, `PROVIDER_ERROR`, `INVALID_RESPONSE`) instead of plain `Error`, so they render the same way DSH's own native errors do.
