@@ -15,10 +15,12 @@ If you've seen [`dsh-subscription-gateway`](https://github.com/DavidRm1911/dsh-s
 Inside a DSH profile:
 
 ```bash
-dsh plugin --profile web add @davidgallo/dsh-llm-subscription
+dsh plugin --profile web add dsh-llm-subscription
 ```
 
 Requires the `claude` CLI (logged in via `claude login`) and/or `agy` (Antigravity CLI, logged in) already on PATH. Missing one just means that provider's models won't show up.
+
+**Read [SECURITY.md](SECURITY.md) before installing this** — it explains exactly what this touches (no credentials, ever) and is honest about a real gray area in how this relates to Anthropic's usage terms.
 
 ## How it actually works
 

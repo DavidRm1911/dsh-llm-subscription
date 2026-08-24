@@ -1,5 +1,5 @@
 {
-  "name": "@davidgallo/dsh-llm-subscription",
+  "name": "dsh-llm-subscription",
   "description": "Native DeepSeek Harness LLM adapter for Claude Code / Antigravity CLI subscriptions — Claude and Gemini in the model picker, no API key",
   "version": "0.1.0",
   "type": "module",
