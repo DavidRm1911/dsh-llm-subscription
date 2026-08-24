@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.1.3 (unreleased)
+## 0.1.4
+
+- No code changes. Clean republish after `npm publish` for 0.1.3 hit a 403 mid-flow (`npm view` confirmed 0.1.3 had actually gone through fine — this bump exists only so there's an unambiguous, freshly-verified version on the registry).
+
+## 0.1.3
 
 - Added a third provider, `qwen-local`, backed by [Ollama](https://ollama.com) (`qwen3.5:9b` by default) — a $0 option with no CLI login of any kind. Same lazy-start pattern as `dsh-subscription-gateway`'s Python Ollama provider: never touches `ollama serve` until the first real call, and only if it isn't already running.
 
