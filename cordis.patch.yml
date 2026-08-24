@@ -2,4 +2,4 @@
 # llm-deepseek — same shape, same seam, different backend.
 - insert:
     - id: llm-subscription
-      name: '@davidgallo/dsh-llm-subscription'
+      name: 'dsh-llm-subscription'
