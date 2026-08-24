@@ -1,7 +1,7 @@
 {
   "name": "dsh-llm-subscription",
   "description": "Native DeepSeek Harness LLM adapter for Claude Code / Antigravity CLI subscriptions — Claude and Gemini in the model picker, no API key",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "lib/index.js",
   "license": "MIT",

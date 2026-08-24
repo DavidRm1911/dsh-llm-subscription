@@ -34,6 +34,8 @@ It might — `cordis` and the `dsh-llm` seam are developer preview with no stabl
 ## What's genuinely rough right now
 
 - No streaming deltas, as above.
+- No thinking/reasoning content — neither CLI's JSON output exposes the actual chain-of-thought text, only a token count. Verified against both, in every output mode each offers; not something fixable from this side. The reasoning-effort selector still controls how much thinking happens, just not what it says.
+- Gemini calls can't be isolated from `agy`'s own built-in tools the way Claude calls are (`--strict-mcp-config`) — there's no equivalent flag. Verified empirically: asked headless, `agy` reports its full native tool set. This adapter never parses or acts on tool-call output, so there's no execution path through here, but the model's own awareness of those tools can still shape its answers.
 - No image input.
 - No credential handling of any kind, because there's no credential — this only ever talks to CLIs you're already logged into.
 - Built and tested against DSH `0.1.1-rc.2`. This whole plugin surface (`cordis`, the `dsh-llm` seam) is developer preview and can change without warning.
