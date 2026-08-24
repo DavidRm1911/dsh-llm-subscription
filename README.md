@@ -26,6 +26,10 @@ Each request shells out to `claude -p` or `agy -p` in headless/JSON mode and res
 
 The Claude call always passes `--strict-mcp-config`. Without it, the subprocess quietly inherits whatever MCP servers are configured in your regular Claude Code setup, which leaked unrelated tools into responses that were supposed to be clean completions — a real bug hit while building this, not a guess.
 
+## If this breaks on a DSH update
+
+It might — `cordis` and the `dsh-llm` seam are developer preview with no stable contract, and this plugin depends on internals discovered by reading `dsh-llm-deepseek`'s compiled source, not from documentation. [`dsh-subscription-gateway`](https://github.com/DavidRm1911/dsh-subscription-gateway) does the same job through DSH's stable, documented Custom Provider screen instead — worse UX (no native picker, no effort selector), but it doesn't touch anything that changes between DSH releases. Worth having as a fallback.
+
 ## What's genuinely rough right now
 
 - No streaming deltas, as above.
