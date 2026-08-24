@@ -20,7 +20,6 @@ dsh plugin --profile web add dsh-llm-subscription
 
 Requires the `claude` CLI (logged in via `claude login`) and/or `agy` (Antigravity CLI, logged in) already on PATH. Missing one just means that provider's models won't show up.
 
-**Read [SECURITY.md](SECURITY.md) before installing this** — it explains exactly what this touches (no credentials, ever) and is honest about a real gray area in how this relates to Anthropic's usage terms.
 
 ## How it actually works
 
@@ -38,6 +37,16 @@ It might — `cordis` and the `dsh-llm` seam are developer preview with no stabl
 - No image input.
 - No credential handling of any kind, because there's no credential — this only ever talks to CLIs you're already logged into.
 - Built and tested against DSH `0.1.1-rc.2`. This whole plugin surface (`cordis`, the `dsh-llm` seam) is developer preview and can change without warning.
+
+## Security & terms of use
+
+This never reads, stores, extracts, or transmits any credential. It shells out to the `claude` / `agy` CLI binaries already installed and logged in on your machine, and reads their stdout. Nothing is shared, proxied, or routed between users — each install runs against your own already-authenticated session.
+
+In February 2026, Anthropic explicitly banned third-party tools (OpenClaw, NanoClaw) that extracted a Claude subscription's OAuth token and reused it to authenticate a separate, direct API client — bypassing Claude Code entirely. That's not what this does. Anthropic's own guidance: *"OAuth authentication is intended exclusively for purchasers of Claude Free, Pro, Max, Team, and Enterprise subscription plans and is designed to support ordinary use of Claude Code and other native Anthropic applications."* What's explicitly prohibited is reselling or intermediating Claude usage between users — each end user authenticating with their own credential is the compliant pattern, and that's what happens here.
+
+That said, Anthropic's broader guidance steers products that *wrap* Claude Code toward API-key billing as the unambiguous, explicitly-sanctioned path for third-party integrations. This plugin doesn't do that — it's a real gray area, not a clearly-blessed one. Not legal advice, no guarantee of compliance with Anthropic's (or Google's, for Antigravity) current or future terms. If you're installing this for anything beyond personal use, read [Anthropic's Usage Policy](https://www.anthropic.com/legal/aup) and Claude Code's [legal and compliance docs](https://docs.anthropic.com/en/docs/claude-code/legal-and-compliance) yourself.
+
+**Standard this project follows for any provider it adds**: never read/cache/transmit a credential on the user's behalf; only ever invoke the vendor's own official CLI in a documented automation mode; never implement a login flow ourselves; no usage pooled or shared across users.
 
 ## License
 
