@@ -60,4 +60,13 @@ section("every listed Gemini model has a GEMINI_MODEL_FLAG entry", () => {
 	}
 });
 
+section("every listed Grok model has a GROK_MODEL_FLAG entry", () => {
+	for (const { id } of mod.MODELS.grok) {
+		assert.ok(id in mod.GROK_MODEL_FLAG, `MODELS.grok has '${id}' but GROK_MODEL_FLAG doesn't`);
+	}
+	for (const id of Object.keys(mod.GROK_MODEL_FLAG)) {
+		assert.ok(mod.MODELS.grok.some((m) => m.id === id), `GROK_MODEL_FLAG has '${id}' but MODELS.grok doesn't list it`);
+	}
+});
+
 console.log("\nsmoke test passed");

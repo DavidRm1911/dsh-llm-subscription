@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Added a fourth provider, `grok` (`grok-4.6`), via the official `@xai-official/grok` CLI — same shell-out pattern as `claude`/`agy`. Unlike Claude/Gemini, xAI officially sanctions this OAuth-subscription pattern for third-party tools (see README's Security & terms of use section) — no ban-risk caveat needed for this one.
+- JSON-field parsing (`text`, `stopReason`, `usage.input_tokens`/`usage.output_tokens`) verified against a real authenticated call, not guessed from docs. `grok-4.5` was dropped from the model list — it showed up unauthenticated but isn't actually offered once logged in.
+- Noted a real cost finding: grok's own agent scaffolding billed 17,665 input tokens for a one-word reply in testing (~$0.036) even with `--tools ""` — worth knowing before heavy use.
+- No reasoning-effort wiring for Grok yet — `--reasoning-effort`/`--effort` exists on the CLI but its accepted values aren't enumerated anywhere reachable without a logged-in account.
+
 ## 0.1.4
 
 - No code changes. Clean republish after `npm publish` for 0.1.3 hit a 403 mid-flow (`npm view` confirmed 0.1.3 had actually gone through fine — this bump exists only so there's an unambiguous, freshly-verified version on the registry).

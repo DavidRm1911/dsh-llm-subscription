@@ -1,7 +1,7 @@
 {
   "name": "dsh-llm-subscription",
-  "description": "Native DeepSeek Harness LLM adapter for Claude Code / Antigravity CLI subscriptions, plus local Ollama — Claude, Gemini and a free local model in the model picker, no API key",
-  "version": "0.1.4",
+  "description": "Native DeepSeek Harness LLM adapter for Claude Code / Antigravity / Grok CLI subscriptions, plus local Ollama — Claude, Gemini, Grok and a free local model in the model picker, no API key",
+  "version": "0.2.0",
   "type": "module",
   "main": "lib/index.js",
   "license": "MIT",
@@ -15,6 +15,7 @@
     "cordis",
     "claude-code",
     "antigravity",
+    "grok",
     "ollama"
   ],
   "files": [
